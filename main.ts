@@ -1,5 +1,5 @@
 /**
- * makecode HT16K33 led backpack Package
+ * makecode HT16K33 LED_Matrix backpack Package
  */
 
 enum HT16K33_I2C_ADDRESSES {
@@ -37,7 +37,7 @@ enum HT16K33_CONSTANTS {
  * HT16K33 block
  */
 //% weight=100 color=#00a7e9 icon="\uf26c" block="HT16K33"
-namespace ht16k33 {
+namespace HT16K33 {
     let matrixAddress = 0;
 
     function sendCommand(command: HT16K33_COMMANDS) {
@@ -84,8 +84,6 @@ namespace ht16k33 {
          * Required to initialize I2C 
          * Issue: https://github.com/lancaster-university/codal-samd/issues/13
          **/
-        pins.SDA.setPull(PinPullMode.PullNone)
-        pins.SCL.setPull(PinPullMode.PullNone)
         sendCommand(HT16K33_COMMANDS.TURN_OSCILLATOR_ON)
         sendCommand(HT16K33_COMMANDS.TURN_DISPLAY_ON)
         setBrightness(15);
